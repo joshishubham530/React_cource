@@ -3,36 +3,23 @@ import "./NewExpenseForm.css";
 
 const NewExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
+
   const [enteredAmount, setEnteredAmount] = useState("");
+
   const [enteredDate, setEnteredDate] = useState("");
+  
   const [form, setform] = useState(true);
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredTitle: event.target.value,
-    // });
   };
 
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredAmount: event.target.value,
-    // });
   };
 
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredDate: event.target.value,
-    // });
-    // console.log(event.target.value);
   };
 
   const onClickHandler = (e) => {
@@ -42,15 +29,16 @@ const NewExpenseForm = (props) => {
       amount: parseFloat(enteredAmount),
       date: new Date(enteredDate),
     };
-    // console.log(expenseData);
+    
     props.onExpenseSaveData(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
   };
+
   const formClose = (e) => {
     props?.setButton(false);
-    // setform(false);
+   
   };
 
   return (
